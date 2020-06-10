@@ -1,0 +1,83 @@
+[app]
+# rsa 公钥路径
+resPubKey = conf/rsa_public_key.pem
+# rsa 私钥路径
+resPriKey = conf/rsa_private_key.pem
+# dataConfig 路径
+dataConfigPath = conf/data.bin
+# 打印协议内容
+printNetMsg = true
+
+[game]
+# 开服时间
+openTime = 1590150465
+
+[log]
+# 日志全局许可类型
+logPermission = debug info warn error dear
+# 日志流水线-控制台
+logLineBranch1 = stdout color debug info warn error dear
+# 日志流水线-错误日志（每天一个，3天有效期）
+logLineBranch2 = timefile stack log/error day 3 error
+# 日志流水线-重要日志（每天一个，永不消失）
+logLineBranch3 = timefile stack log/dear day -1 dear
+# 日志流水线-临时日志（每小时一个，3小时有效期）
+logLineBranch4 = timefile stack log/tmp hour 3 debug info warn error dear
+# 日志流水线-备用
+logLineBranch5 =
+
+[logic]
+# 连接服端口号
+connPort = 8921
+# rpc服务器地址
+rpcAddr = 127.0.0.1:8812
+# rpc崩溃重新启动时间
+rpcRestartTime = 5
+
+[http]
+# http服务监听的端口号
+httpPort = 8922
+
+[master]
+# master服务监听的端口号
+masterPort = 8923
+# master服务器检验码
+masterToken = h76HVQq8JNNo61Gc0thnkdOzQppwsbUu
+
+[mongo]
+# mongo数据库用户
+mongoUser = admin
+# mongo数据库密码
+mongoPwd = admin12345
+# mongo数据库地址
+mongoAddr = mongodb://120.53.12.253:8925
+# 数据库名称
+mongoDb = planelogic
+
+[redis]
+# redis服务器地址
+redisAddr = 120.53.12.253:8926
+# redis过期设置1
+redisExp1 = e_ hour 48
+# redis过期设置2
+redisExp2 =
+# redis过期设置3
+redisExp3 =
+# redis过期设置4
+redisExp4 =
+# redis过期设置5
+redisExp5 =
+
+
+[zookeeper]
+# zookeeper 服务器登录的用户
+zkLoginAuth = plane:123456
+# zookeeper 节点acl
+zkNodeAcl = digest cdrwa plane 123456
+# zookeeper 服务器地址
+zkAddr = 120.53.12.253:8927
+# zookeeper 全局id路径
+zkSmallUidPath = /plane/app/uids
+zkBigUidPath = /plane/app/uidb
+# zookeeper 断开重新连接的时间
+zkRestartTime = 5
